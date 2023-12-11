@@ -27,7 +27,7 @@ function Clock(props) {
             <h1>{dayofWeek}</h1>
             <h1>{`${dateNumber} ${month}`}</h1>
             <h2>{`${time.hours}:${time.minutes < 10 ? '0' + time.minutes : time.minutes}`}</h2>
-            <p>Вы на сайте уже</p>
+            <p>{minutesOnSite? 'Вы на сайте уже':''}</p>
             <p>{minutesOnSite ? `${minutesOnSite} минут${Math.floor(minutesOnSite/10)%10 != 1?  minutesOnSite % 10 == 1 ? 'у' : [2, 3, 4].includes(minutesOnSite % 10) ? 'ы' : '':''}` : ''}</p>
             <TimeWarining time={minutesOnSite}></TimeWarining>
         </div>
