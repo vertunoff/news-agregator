@@ -144,6 +144,7 @@ body {
     transform: translate(-50%, -50%);
     font-family: 'Montserrat';
     font-size: 3vh;
+    width: 100%;
 }
 .article-title:hover{
     color: darkblue;

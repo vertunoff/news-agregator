@@ -6,13 +6,13 @@ function ArticleLayout() {
     return (
         <div className='article-layout'>
             <ArticleBoxContainer>
-                <ArticleBox direction='row' flex='2' topic='замечательные'>
+                <ArticleBox direction='column' topic='замечательные'>
                     <Article title='При пожаре бабах' time='12:89' ></Article>
                     <Article title='Аниме' time='15:01' ></Article>
                     <Article title='Аниме' time='15:01' ></Article>
                 </ArticleBox>
-                <ArticleBoxContainer>
-                    <ArticleBox topic='о главном'>
+                <ArticleBoxContainer flex='2' >
+                    <ArticleBox topic='о главном' direction='row'>
                         <Article title='Путин' time='18:59'></Article>
                         <Article title='Путин' time='18:59'></Article>
                         <Article title='Путин' time='18:59'></Article>
@@ -23,9 +23,16 @@ function ArticleLayout() {
                 <ArticleBox flex='2'>
                 <Article title='При пожаре бабах' time='12:89' ></Article>
                 <Article title='При пожаре бабах' time='12:89' ></Article>
+                <Article title='При пожаре бабах' time='12:89' ></Article>
 
                 </ArticleBox>
-                <ArticleBox></ArticleBox>
+                <ArticleBox>
+                <Article title='При пожаре бабах' time='12:89' ></Article>
+                <Article title='При пожаре бабах' time='12:89' ></Article>
+                <Article title='При пожаре бабах' time='12:89' ></Article>
+                <Article title='При пожаре бабах' time='12:89' ></Article>
+
+                </ArticleBox>
             </ArticleBoxContainer>
         </div>
     )
