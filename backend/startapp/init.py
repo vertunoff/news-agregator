@@ -4,6 +4,7 @@ from main.models import *
 
 def main():
     print("server started")
+    return
     for site in link_parse_config:
         failed = 0
         try:

@@ -5,6 +5,7 @@ function Clock(props) {
 
     const time = useTime()
     const [minutesOnSite, setMinutesOnSite] = useState(new Date())
+    const [minutesTillWarning, setMinutesTillWarning] = useState(new Date(0).setMinutes(20))
     // useEffect(()=> setMinutesOnSite(timeOnSite.seconds), [timeOnSite.minutes])
     const days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятницы", "Суббота"]
     const months = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Отктября", "Ноября", "Декабря"]
@@ -21,6 +22,7 @@ function Clock(props) {
         setdateNumber(date.getDate())
         setMonth(months[date.getMonth()])
         setMinutesOnSite(Math.round((new Date() - new Date(localStorage.getItem('onsite'))) / 1000 / 60))
+        setMinutesTillWarning(minutesOnSite <= 20 ? minutesOnSite : minutesOnSite)
     }
     return (
         <div className='clock'>
@@ -28,8 +30,8 @@ function Clock(props) {
             <h1>{`${dateNumber} ${month}`}</h1>
             <h2>{`${time.hours}:${time.minutes < 10 ? '0' + time.minutes : time.minutes}`}</h2>
             <p>{minutesOnSite? 'Вы на сайте уже':''}</p>
-            <p>{minutesOnSite ? `${minutesOnSite} минут${Math.floor(minutesOnSite/10)%10 != 1?  minutesOnSite % 10 == 1 ? 'у' : [2, 3, 4].includes(minutesOnSite % 10) ? 'ы' : '':''}` : ''}</p>
-            <TimeWarining time={minutesOnSite}></TimeWarining>
+            <p>{minutesOnSite ? `${minutesOnSite} минут${Math.floor(minutesOnSite/10)%10 !== 1?  minutesOnSite % 10 === 1 ? 'у' : [2, 3, 4].includes(minutesOnSite % 10) ? 'ы' : '':''}` : ''}</p>
+            {/* <TimeWarining time={minutesOnSite}></TimeWarining> */}
         </div>
     )
 }

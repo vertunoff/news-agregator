@@ -16,7 +16,7 @@ def start_app():
 # Create your views here.
 class ArticleView(APIView):
     def get(self, request):
-        output = [{"url": output.url, "title": output.title, "resource_name": output.resource_name, "date":output.date, "topic": output.topic.upper(), "photo": output.photo, "text": output.text, "date_created":output.date_created} for output in Article.objects.all()]
+        output = [{"url": output.url, "title": output.title, "resource_name": output.resource_name, "date":output.date, "topic": output.topic.upper(), "photo": output.photo, "text": output.text, "date_created":(lambda x: f'{x.time().hour}:{x.time().minute if x.time().minute > 9 else '0'+str(x.time().minute)}')(output.date_created)} for output in Article.objects.all()]
         return Response(output)
     def post(self, request):
         serializer = ArticleSerializer(data=request.data)

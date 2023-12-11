@@ -1,41 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ArticleBoxContainer from './ArticleBoxContainer'
 import ArticleBox from './ArticleBox'
 import Article from './Article'
+import axios from 'axios'
 function ArticleLayout() {
-    return (
+    const [articles, setArticles] = useState([])
+    const [isReady, setIsReady] = useState(false)
+    let i = 90
+    useEffect(fetchArticles, [])
+    function fetchArticles() {
+        axios
+            .get('http://127.0.0.1:8000/')
+            .then(data => {
+                setArticles(data.data)
+                setIsReady(true)
+            })
+    }
+    return isReady ? (
         <div className='article-layout'>
+        {console.log(articles[i].title)}
             <ArticleBoxContainer>
                 <ArticleBox direction='column' topic='замечательные'>
-                    <Article title='При пожаре бабах' time='12:89' ></Article>
-                    <Article title='Аниме' time='15:01' ></Article>
-                    <Article title='Аниме' time='15:01' ></Article>
+                    <Article article={articles[i--]}></Article>
+                    <Article article={articles[i--]}></Article>
+                    <Article article={articles[i--]}></Article>
                 </ArticleBox>
                 <ArticleBoxContainer flex='2' >
                     <ArticleBox topic='о главном' direction='row'>
-                        <Article title='Путин' time='18:59'></Article>
-                        <Article title='Путин' time='18:59'></Article>
-                        <Article title='Путин' time='18:59'></Article>
+                        <Article article={articles[i--]}></Article>
+                        <Article article={articles[i--]}></Article>
+                        <Article article={articles[i--]}></Article>
                     </ArticleBox>
                 </ArticleBoxContainer>
             </ArticleBoxContainer>
             <ArticleBoxContainer>
                 <ArticleBox flex='2'>
-                <Article title='При пожаре бабах' time='12:89' ></Article>
-                <Article title='При пожаре бабах' time='12:89' ></Article>
-                <Article title='При пожаре бабах' time='12:89' ></Article>
+                <div className='lovely-flex-box'>
+                    <Article article={articles[i--]}></Article>
+                    <Article article={articles[i--]}></Article>
+                    </div>
+                    <Article article={articles[i--]}></Article>
 
                 </ArticleBox>
                 <ArticleBox>
-                <Article title='При пожаре бабах' time='12:89' ></Article>
-                <Article title='При пожаре бабах' time='12:89' ></Article>
-                <Article title='При пожаре бабах' time='12:89' ></Article>
-                <Article title='При пожаре бабах' time='12:89' ></Article>
+                <Article article={articles[i--]}></Article>
+                <Article article={articles[i--]}></Article>
+                <Article article={articles[i--]}></Article>
 
                 </ArticleBox>
             </ArticleBoxContainer>
         </div>
-    )
+    ) : ''
 }
 
 export default ArticleLayout
