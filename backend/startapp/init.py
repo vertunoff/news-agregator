@@ -12,11 +12,11 @@ def main():
                 print(site)
                 if category == "homeurl":
                     continue
-                if failed > 2:
+                if failed > 4:
                     break
                 links = get_links(link_parse_config, site, category)
                 for link in links:
-                    if failed > 2:
+                    if failed > 4:
                         break
                     if not Article.objects.filter(url=link).exists():
                         try:
@@ -25,7 +25,6 @@ def main():
                             )
                             article = Article(**article)
                             article.save()
-                            break
                         except:
                             failed += 1
                             print("failed parsing article")

@@ -3,49 +3,48 @@ import ArticleBoxContainer from './ArticleBoxContainer'
 import ArticleBox from './ArticleBox'
 import Article from './Article'
 import axios from 'axios'
-function ArticleLayout() {
+function ArticleLayout(props) {
     const [articles, setArticles] = useState([])
     const [isReady, setIsReady] = useState(false)
-    let i = 90
+    let i =0
     useEffect(fetchArticles, [])
     function fetchArticles() {
         axios
             .get('http://127.0.0.1:8000/')
             .then(data => {
-                setArticles(data.data)
+                setArticles(data.data.reverse())
+        
+                console.log()
                 setIsReady(true)
             })
     }
     return isReady ? (
         <div className='article-layout'>
-        {console.log(articles[i].title)}
             <ArticleBoxContainer>
-                <ArticleBox direction='column' topic='замечательные'>
-                    <Article article={articles[i--]}></Article>
-                    <Article article={articles[i--]}></Article>
-                    <Article article={articles[i--]}></Article>
+                <ArticleBox direction='column' topic='последние'>
+                    <Article article={articles.filter(article=>article.topic==='ПОСЛЕДНИЕ')[0]} click={props.controllers.fullpage}></Article>
+                    <Article article={articles.filter(article=>article.topic==='ПОСЛЕДНИЕ')[1]} click={props.controllers.fullpage}></Article>
                 </ArticleBox>
                 <ArticleBoxContainer flex='2' >
-                    <ArticleBox topic='о главном' direction='row'>
-                        <Article article={articles[i--]}></Article>
-                        <Article article={articles[i--]}></Article>
-                        <Article article={articles[i--]}></Article>
+                    <ArticleBox topic='В мире' direction='row'>
+                        <Article article={articles.filter(article=>article.topic==='В МИРЕ')[0]} click={props.controllers.fullpage}></Article>
+                        <Article article={articles.filter(article=>article.topic==='В МИРЕ')[1]} click={props.controllers.fullpage}></Article>
                     </ArticleBox>
                 </ArticleBoxContainer>
             </ArticleBoxContainer>
             <ArticleBoxContainer>
-                <ArticleBox flex='2'>
+                <ArticleBox topic='общество'flex='2'>
                 <div className='lovely-flex-box'>
-                    <Article article={articles[i--]}></Article>
-                    <Article article={articles[i--]}></Article>
+                    <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[0]} click={props.controllers.fullpage}></Article>
+                    <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[1]} click={props.controllers.fullpage}></Article>
                     </div>
-                    <Article article={articles[i--]}></Article>
+                    <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
 
                 </ArticleBox>
-                <ArticleBox>
-                <Article article={articles[i--]}></Article>
-                <Article article={articles[i--]}></Article>
-                <Article article={articles[i--]}></Article>
+                <ArticleBox topic='ПОЛИТИКА' direction='column'>
+                <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
+                <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
+                <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
 
                 </ArticleBox>
             </ArticleBoxContainer>

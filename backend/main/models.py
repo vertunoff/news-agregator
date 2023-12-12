@@ -12,7 +12,3 @@ class Article(models.Model):
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
     def __str__(self):
         return self.resource_name + self.title[:20]
-    def set_text(self, pars):
-        self.text = json.dumps(pars)
-    def get_text(self):
-        return json.loads(self.text)
