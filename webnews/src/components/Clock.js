@@ -22,7 +22,6 @@ function Clock(props) {
         setdateNumber(date.getDate())
         setMonth(months[date.getMonth()])
         setMinutesOnSite(Math.round((new Date() - new Date(localStorage.getItem('onsite'))) / 1000 / 60))
-        setMinutesTillWarning(minutesOnSite <= 20 ? minutesOnSite : minutesOnSite)
     }
     return (
         <div className='clock'>
