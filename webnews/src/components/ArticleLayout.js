@@ -21,30 +21,30 @@ function ArticleLayout(props) {
     return isReady ? (
         <div className='article-layout'>
             <ArticleBoxContainer>
-                <ArticleBox direction='column' topic='последние'>
+                <ArticleBox topic='ПОСЛЕДНИЕ'flex='2'>
+                <div className='lovely-flex-box'>
                     <Article article={articles.filter(article=>article.topic==='ПОСЛЕДНИЕ')[0]} click={props.controllers.fullpage}></Article>
                     <Article article={articles.filter(article=>article.topic==='ПОСЛЕДНИЕ')[1]} click={props.controllers.fullpage}></Article>
+                    </div>
+                    <Article article={articles.filter(article=>article.topic==='ПОСЛЕДНИЕ')[4]} click={props.controllers.fullpage}></Article>
                 </ArticleBox>
-                <ArticleBoxContainer flex='2' >
-                    <ArticleBox topic='В мире' direction='row'>
+                <ArticleBoxContainer flex='1' >
+                    <ArticleBox topic='В мире' direction='column'>
                         <Article article={articles.filter(article=>article.topic==='В МИРЕ')[0]} click={props.controllers.fullpage}></Article>
                         <Article article={articles.filter(article=>article.topic==='В МИРЕ')[1]} click={props.controllers.fullpage}></Article>
+                        <Article article={articles.filter(article=>article.topic==='В МИРЕ')[2]} click={props.controllers.fullpage}></Article>
                     </ArticleBox>
                 </ArticleBoxContainer>
             </ArticleBoxContainer>
             <ArticleBoxContainer>
-                <ArticleBox topic='общество'flex='2'>
-                <div className='lovely-flex-box'>
+                <ArticleBox direction='column' topic='Политика'>
                     <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[0]} click={props.controllers.fullpage}></Article>
                     <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[1]} click={props.controllers.fullpage}></Article>
-                    </div>
-                    <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
-
                 </ArticleBox>
-                <ArticleBox topic='ПОЛИТИКА' direction='column'>
-                <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
-                <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
-                <Article article={articles.filter(article=>article.topic==='ПОЛИТИКА')[2]} click={props.controllers.fullpage}></Article>
+                <ArticleBox topic='ЭКОНОМИКА' direction='column'>
+                <Article article={articles.filter(article=>article.topic==='ЭКОНОМИКА')[2]} click={props.controllers.fullpage}></Article>
+                <Article article={articles.filter(article=>article.topic==='ЭКОНОМИКА')[2]} click={props.controllers.fullpage}></Article>
+                <Article article={articles.filter(article=>article.topic==='ЭКОНОМИКА')[2]} click={props.controllers.fullpage}></Article>
 
                 </ArticleBox>
             </ArticleBoxContainer>

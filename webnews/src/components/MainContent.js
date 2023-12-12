@@ -24,7 +24,7 @@ function MainContent() {
                 <div className='left-bar'>
                     <div className='ad'></div>
                     <Clock></Clock>
-                    <div className='ad' style={{flex: '2'}}></div>
+                    <div className='ad' ></div>
                 </div>
                 {pageState==='initial'? 
                 <ArticleLayout controllers={controllers}></ArticleLayout>

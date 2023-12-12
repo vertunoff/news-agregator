@@ -6,13 +6,14 @@ body {
 
 .main-content-container {
     background-color: rgb(246, 239, 231);
-    width: 80vw;
+    width: 100vw;
     height: 100vh;
     margin: 0 auto;
+
 }
 
 .main-content {
-    width: 70vw;
+    width: 80vw;
     height: calc(100% - 40px);
     margin: 0 auto;
     position: relative;
@@ -32,7 +33,7 @@ body {
     width: 25vw;
     height: 25px;
     top: 7.5px;
-    left: 7.5vw;
+    left: 12.5vw;
     font-family: "Montserrat Alternates-Medium", Helvetica;
     font-weight: 500;
     color: #ffffff;
@@ -46,7 +47,7 @@ body {
     width: 25px;
     height: 25px;
     top: 7.5px;
-    left: 5vw;
+    left: 10vw;
     background-image: url(https://cdn-icons-png.flaticon.com/512/906/906338.png);
     background-size: 100% 100%;
 }
@@ -55,7 +56,7 @@ body {
     position: absolute;
     width: 20vw;
     height: 100%;
-    right: 5vw;
+    right: 10vw;
 }
 
 .header .searchbar input {
@@ -71,8 +72,7 @@ body {
 }
 
 .left-bar {
-    flex: 1;
-    background-color: rgb(248, 241, 241);
+    flex: 2;
     min-width: 9vw;
     height: 100%;
     display: flex;
@@ -80,7 +80,7 @@ body {
 }
 
 .clock {
-    flex: 1;
+    flex: 1.3;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,22 +88,32 @@ body {
     gap: 1%;
     font-family: 'Oswald', sans-serif;
     z-index: 100;
+    background-color: white;
+    border-style: solid;
+    border-width: 0.2vh;
+    border-radius: 3vh;
 }
 
 .clock h1 {
+
     flex: 1;
     margin: 0;
 }
 
 .clock h2 {
     font-size: 5vh;
+    margin: 0;
 }
 
 .clock p {
     font-size: 2vh;
     text-align: center;
     flex: 2;
-    margin: 0;
+    margin-bottom: 2vh;
+}
+
+.clock div {
+    border-bottom: 2vh;
 }
 
 .ad {
@@ -128,6 +138,7 @@ body {
 .article-box {
     flex: 1;
     border-style: solid;
+    background-color: white;
     border-width: 0.2vh;
     border-radius: 3vh;
     display: flex;
@@ -145,7 +156,7 @@ body {
 
 .article-title {
     position: absolute;
-    width: 85%;
+    width: 90%;
     height: fit-content;
     top: 50%;
     left: 50%;
@@ -154,16 +165,22 @@ body {
     font-family: 'Montserrat';
     font-size: 1rem;
     font-weight: 800;
+    transition: 200ms all linear;
 }
 
 .article-title:hover {
-    color: darkblue;
+    color: rgb(12, 12, 197);
     font-weight: 900;
+    font-size: 1.1rem;
+    transition: 200ms all linear;
+    cursor: pointer;
 }
-.lovely-flex-box{
+
+.lovely-flex-box {
     display: flex;
     flex: 1;
 }
+
 .article-time {
     position: absolute;
     left: 50%;
@@ -177,7 +194,7 @@ body {
     text-transform: uppercase;
     position: absolute;
     top: 2%;
-    left: 2%;
+    left: 4%;
     font-family: 'Montserrat Alternates', 'Courier New', Courier, monospace;
     font-size: 0.9vw;
 }
@@ -217,45 +234,93 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3.5vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.full-page-article{
+
+.time-warning .text p {
+    width: fit-content;
+}
+
+.full-page-article {
     flex: 12;
     min-height: calc(100% - 40px);
     scrollbar-width: none;
-    scroll-behavior:auto;
+    scroll-behavior: auto;
     overflow: scroll;
     overflow-x: hidden;
     margin-top: 0;
     margin-right: 3vw;
     margin-left: 0;
-    
-}
-.full-page-article h1{
-    font-family: 'Montserrat Alternates', 'Courier New', Courier, monospace;
-    font-size: 2rem;
-    margin: 0 4vw;
-    width: 80%;
 
 }
-.full-page-article .image-container{
-    margin: 0 4vw;
+
+.full-page-article-topic {
+    height: 50%;
+    width: 60%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.full-page-article .image-container img{
+.full-page-article h1 {
+    margin: 0;
+    font-family: Arial;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 500;
+    color: white;
+    font-size: 1.5rem;
+
     width: 100%;
+    margin-left: 2%;
+
+
 }
-.full-page-article h3{
+
+.full-page-article .image-container {
+    position: relative;
+    margin: 0 9vw;
+    max-height: 20vw;
+    overflow: hidden;
+}
+
+.full-page-article .image-container img {
+    width: 100%;
+
+}
+
+.full-page-article h3 {
     color: grey;
     font-size: 1.5rem;
-    margin: 0.3rem 0;
-    margin: 0 4vw;
+    margin: 1vh 9vw;
+    width: 100%;
 
 }
-.full-page-article p{
-    font-family: 'Montserrat Alternates', 'Courier New', Courier, monospace;
-    font-size: 1rem;
-    margin: 0 4vw;
 
+.full-page-article p {
+    font-family: 'Arial', 'Courier New', Courier, monospace;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 2vh 9vw;
+
+}
+.full-page-article .source{
+    font-family: 'Arial', 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: grey;
+    margin: 1vh 9vw;
+}
+
+.full-page-article .source a{
+    color: inherit;
 }
 ::-webkit-scrollbar {
     width: 3px;
@@ -263,10 +328,10 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 }

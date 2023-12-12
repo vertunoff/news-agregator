@@ -8,7 +8,7 @@ function TimeWarining(props) {
           <p>Вы провели за чтением уже 20 минут</p>
           <p>Возможно, следует сделать перерыв</p>
         </div>
-        <div className='close-btn'>OK</div>
+        <div className='close-btn' onClick={props.click}>OK</div>
       </div>
     </div>
   ):''
